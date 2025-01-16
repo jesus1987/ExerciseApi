@@ -89,16 +89,18 @@ namespace ExerciseApiDataAccess
             using (var connection = new SqlConnection(_connectionString))
             {
                 // Update query
-                string updateQuery = "UPDATE Users SET Name, LastName, Email WHERE Id = @Id";
+                string updateQuery = "UPDATE Users SET Name=@Name, LastName = @LastName, Email= @Email, Password=@Password WHERE Id = @Id";
 
                 // Select query to fetch the updated record
-                string selectQuery = "SELECT Id, Name, LastName, Email FROM Users WHERE Id = @Id";
+                string selectQuery = "SELECT Id, Name, LastName, Email, Password FROM Users WHERE Id = @Id";
 
                 using (var command = new SqlCommand(updateQuery, connection))
                 {
+                    command.Parameters.AddWithValue("@Id", user.Id);
                     command.Parameters.AddWithValue("@Name", user.Name);
                     command.Parameters.AddWithValue("@LastName", user.LastName);
                     command.Parameters.AddWithValue("@Email", user.Email);
+                    command.Parameters.AddWithValue("@Password", user.Password);
 
                     await connection.OpenAsync();
                     // Execute the update command

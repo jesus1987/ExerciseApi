@@ -78,6 +78,10 @@ public class UserBusiness : IUserBusiness
         }
 
         var entity = Mapper.MapProperties<UserViewModel, ExerciseApiDataAccess.Entities.User>(userViewModel);
+        if (!string.IsNullOrEmpty(entity.Password))
+        {
+            entity.Password = HashPassword(entity.Password);
+        }
         var result = await _userRepository.UpdateAsync(entity);
         return Result.Ok(Mapper.MapProperties<ExerciseApiDataAccess.Entities.User, UserViewModel>(result));
     }
