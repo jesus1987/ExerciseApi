@@ -40,23 +40,24 @@ Acceptance Criteria:
 
 How It Was Made:
 
-The API was developed using .NET Core 8 and Visual Studio 2022.
 
-Architecture:
-	Dependency Injection: The architecture incorporates dependency injection to promote loose coupling and modularity.
-	
-	Layered Structure: The application is organized into three layers:
-		1. API Layer: Contains controllers that handle HTTP requests.
-		2. Business Layer: Encapsulates business logic and application rules.
-		3. Data Layer: Responsible for interacting with the database.
-	Database Interaction: Data is saved to the database using raw SQL queries.
-	
-	Mapping Helpers: Custom helpers were created to:
-		1. Map database query results to objects.
-		2. Convert view models into entities for better data management.
+	The API was developed using .NET Core 8 and Visual Studio 2022.
 
-Testing:
-	A dedicated unit test project was implemented, including:
-		1. Unit Tests: To validate individual components and ensure functionality.
-		2. Integration Tests: Written using Test-Driven Development (TDD) practices to verify end-to-end behavior and expected results.
+	Architecture:
+		Dependency Injection: The architecture incorporates dependency injection to promote loose coupling and modularity.
+	
+		Layered Structure: The application is organized into three layers:
+			1. API Layer: Contains controllers that handle HTTP requests.
+			2. Business Layer: Encapsulates business logic and application rules.
+			3. Data Layer: Responsible for interacting with the database.
+		Database Interaction: Data is saved to the database using raw SQL queries.
+	
+		Mapping Helpers: Custom helpers were created to:
+			1. Map database query results to objects.
+			2. Convert view models into entities for better data management.
+
+	Testing:
+		A dedicated unit test project was implemented, including:
+			1. Unit Tests: To validate individual components and ensure functionality.
+			2. Integration Tests: Written using Test-Driven Development (TDD) practices to verify end-to-end behavior and expected results.
 
